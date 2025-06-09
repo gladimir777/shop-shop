@@ -1,4 +1,5 @@
 import banner from './assets/banner.png';
+import Card from './components/Card';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       </header>
       <div>
         <img src={banner} alt='site baner' />
+        <Card />
       </div>
     </div>
   );
