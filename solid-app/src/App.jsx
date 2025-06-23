@@ -6,7 +6,6 @@ function App() {
   const [darkTheme, setDarkTheme] = createSignal(false);
 
   function toggleTheme() {
-    console.log('test');
     setDarkTheme(!darkTheme());
   }
   return (
