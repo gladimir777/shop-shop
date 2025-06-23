@@ -1,10 +1,29 @@
+import { createSignal } from 'solid-js';
 import banner from './assets/banner.png';
 import Card from './components/Card';
 
 function App() {
+  const [darkTheme, setDarkTheme] = createSignal(false);
+
+  function toggleTheme() {
+    console.log('test');
+    setDarkTheme(!darkTheme());
+  }
   return (
     <div class='container m-auto'>
-      <header>
+      <header
+        class='my-4 p-2 text-xl flex items-center gap-4'
+        classList={{
+          'bg-neutral-900': darkTheme(),
+          'text-white': darkTheme()
+        }}
+      >
+        <span
+          class='material-symbols-outlined cursor-pointer'
+          onclick={toggleTheme}
+        >
+          light_mode
+        </span>
         <h1>Shop shop</h1>
       </header>
       <div>
