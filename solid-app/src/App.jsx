@@ -1,6 +1,8 @@
 import { createSignal } from 'solid-js';
+import { Route, Router, A } from '@solidjs/router';
 import banner from './assets/banner.png';
-import Card from './components/Card';
+import Home from './pages/Home';
+import Cart from './pages/Cart';
 
 function App() {
   const [darkTheme, setDarkTheme] = createSignal(false);
@@ -24,44 +26,15 @@ function App() {
           light_mode
         </span>
         <h1>Shop shop</h1>
+        <a href='/'>Home</a>
+        <a href='/cart'>Cart</a>
       </header>
-      <div>
-        <img class='rounded-md' src={banner} alt='site baner' />
-        <div class='grid grid-cols-4 gap-10 my-4'>
-          <Card title='Shop Shop' rounded={true} flat={false}>
-            <h2>Shop shop</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
-              aut, perferendis reiciendis et cupiditate numquam.
-            </p>
-            <button class='btn'>Click me!</button>
-          </Card>
-          <Card title='Shop Shop' rounded={false} flat={true}>
-            <h2>Shop shop</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
-              aut, perferendis reiciendis et cupiditate numquam.
-            </p>
-            <button class='btn'>Click me!</button>
-          </Card>
-          <Card title='Shop Shop' rounded={true} flat={false}>
-            <h2>Shop Shop</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
-              aut, perferendis reiciendis et cupiditate numquam.
-            </p>
-            <button class='btn'>Click me!</button>
-          </Card>
-          <Card title='Shop Shop' rounded={true} flat={false}>
-            <h2>Shop</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
-              aut, perferendis reiciendis et cupiditate numquam.
-            </p>
-            <button class='btn'>Click me!</button>
-          </Card>
-        </div>
-      </div>
+
+      <img class='rounded-md' src={banner} alt='site baner' />
+      <Router>
+        <Route path='/' component={Home} />
+        <Route path='/cart' component={Cart} />
+      </Router>
     </div>
   );
 }
