@@ -16,11 +16,9 @@ function Home() {
             <Card title='Shop Shop' rounded={true} flat={false}>
               <img src={product.img} alt='product image' />
               <h2 class='my-3 font-bold'>{product.title}</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
-                aut, perferendis reiciendis et cupiditate numquam.
-              </p>
-              <button class='btn'>Click me!</button>
+              <a href={'/product/' + product.id} class='btn'>
+                View Product
+              </a>
             </Card>
           )}
         </For>
