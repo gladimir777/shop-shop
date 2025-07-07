@@ -4,13 +4,21 @@ import banner from './assets/banner.png';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
 import Product from './pages/Product';
+import { useCartContext } from './context/CartContext';
 
 function App() {
   const [darkTheme, setDarkTheme] = createSignal(false);
+  const { items } = useCartContext();
 
   function toggleTheme() {
     setDarkTheme(!darkTheme());
   }
+
+  const quantity = () => {
+    return items.reduce((acc, curr) => {
+      return acc + curr.quantity;
+    }, 0);
+  };
   return (
     <div class='container m-auto'>
       <header
@@ -28,7 +36,7 @@ function App() {
         </span>
         <h1>Shop shop</h1>
         <a href='/'>Home</a>
-        <a href='/cart'>Cart</a>
+        <a href='/cart'>Cart ({quantity()})</a>
       </header>
 
       <img class='rounded-md' src={banner} alt='site baner' />
